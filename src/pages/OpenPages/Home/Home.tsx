@@ -1,8 +1,11 @@
+import LoginBtnHome from "./LoginBtnHome";
+import Result from "./Result";
 
 const Home = () => {
     return (
         <div>
-            This is my home page 
+            <LoginBtnHome />
+            <Result />
         </div>
     );
 };
