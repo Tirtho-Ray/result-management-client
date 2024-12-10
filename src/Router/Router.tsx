@@ -1,11 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../Main/Main";
 import ErrorPage from "../lib/ErrPage";
 
 const router = createBrowserRouter([
     {
         path:"/",
-        element:<Main />,
+        element:<></>,
         errorElement:<ErrorPage />,
         children:[
             {
@@ -21,6 +20,10 @@ const router = createBrowserRouter([
                 element:<div>Contact</div>
             }
         ]
+    },
+    // this is for ad admin routes
+    {
+
     }
 ]);
 export default router;
