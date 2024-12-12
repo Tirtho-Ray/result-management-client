@@ -20,11 +20,15 @@ const Result = () => {
                     name=""
                     id=""
                   >
-                    <option value="">Select Division</option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
+                    <option value="">Select Semester</option>
+                    <option value="A">1</option>
+                    <option value="B">2</option>
+                    <option value="C">3</option>
+                    <option value="D">4</option>
+                    <option value="D">5</option>
+                    <option value="D">6</option>
+                    <option value="D">7</option>
+                    <option value="D">8</option>
                   </select>
                 </div>
                 <div className="flex justify-center">
