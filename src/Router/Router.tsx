@@ -3,7 +3,9 @@ import ErrorPage from "../lib/ErrPage";
 import OpenLayout from "../Layout/openLayout/OpenLayout";
 import AdminLayout from "../Layout/adminLayout/AdminLayout";
 import Home from "../pages/OpenPages/Home/Home";
-import Dashboard from "../components/AdminComponents/Dashboard";
+import AdminHome from "../pages/AdminPages/Home/Home";
+import ManageStudent from "../pages/AdminPages/Home/ManageStudent";
+// import Sidebar from "../components/AdminComponents/Sidebar";
 
 const router = createBrowserRouter([
     // This is for open routes
@@ -20,13 +22,17 @@ const router = createBrowserRouter([
     },
     // this is for ad admin routes
     {
-        path:"/admin",
+        path:"/admin/dashboard",
         element:<AdminLayout/>,
         errorElement:<ErrorPage />,
         children:[
             {
-                path:"/admin/dashboard",
-                element:<Dashboard />
+                path:"/admin/dashboard/home",
+                element:<AdminHome />
+            },
+            {
+                path:"/admin/dashboard/student",
+                element:<ManageStudent />
             }
         ]
             

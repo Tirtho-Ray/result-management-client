@@ -1,9 +1,10 @@
+import Sidebar from "./Sidebar";
 
 
 const Dashboard = () => {
     return (
         <div>
-            Thai is admin DashBoard
+           <Sidebar />
         </div>
     );
 };

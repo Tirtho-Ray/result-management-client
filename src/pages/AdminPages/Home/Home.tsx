@@ -1,5 +1,5 @@
 
-const Home = () => {
+const AdminHome = () => {
     return (
         <div>
             This is admin home
@@ -7,4 +7,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default AdminHome;
