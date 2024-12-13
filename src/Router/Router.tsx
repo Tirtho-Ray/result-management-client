@@ -20,12 +20,12 @@ const router = createBrowserRouter([
     },
     // this is for ad admin routes
     {
-        path:"/",
+        path:"/admin",
         element:<AdminLayout/>,
         errorElement:<ErrorPage />,
         children:[
             {
-                path:"/dashboard",
+                path:"/admin/dashboard",
                 element:<Dashboard />
             }
         ]

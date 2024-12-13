@@ -74,7 +74,7 @@ const LoginBtnHome = () => {
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
           toast.success("Login successful!");
-          navigate("/");
+          navigate("/admin/dashboard");
           closeModal();
         } else {
           console.error("Tokens are missing in the response.");
