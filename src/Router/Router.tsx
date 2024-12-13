@@ -3,6 +3,7 @@ import ErrorPage from "../lib/ErrPage";
 import OpenLayout from "../Layout/openLayout/OpenLayout";
 import AdminLayout from "../Layout/adminLayout/AdminLayout";
 import Home from "../pages/OpenPages/Home/Home";
+import Dashboard from "../components/AdminComponents/Dashboard";
 
 const router = createBrowserRouter([
     // This is for open routes
@@ -24,8 +25,8 @@ const router = createBrowserRouter([
         errorElement:<ErrorPage />,
         children:[
             {
-                path:"admin/dashboard",
-                element:<div>Admin Dashboard</div>
+                path:"/dashboard",
+                element:<Dashboard />
             }
         ]
             
