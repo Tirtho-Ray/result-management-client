@@ -1,46 +1,35 @@
-import { useState } from "react";
-import { RxHamburgerMenu, RxCrossCircled } from "react-icons/rx";
+import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <div className={`flex flex-col ${isOpen ? "w-64" : "w-16"} transition-all duration-300 bg-gray-800 h-full`}>
-      {/* Sidebar Toggle Button */}
-      <div
-        className="absolute top-4 right-0 p-2 bg-gray-800 rounded-l-md cursor-pointer text-white"
-        onClick={toggleSidebar}
-      >
-        {isOpen ? <RxCrossCircled size={24} /> : <RxHamburgerMenu size={24} />}
+    <>
+      {/* Toggle button - only visible on small devices */}
+      <div className="md:hidden fixed top-4 left-4 z-50 text-white cursor-pointer" onClick={toggleSidebar}>
+        {isOpen ? <FaTimes size={24} className="text-white" /> : <FaBars size={24} className="text-gray-800" />}
       </div>
 
-      {/* Sidebar Menu */}
-      <div className={`mt-16 ${isOpen ? "block" : "hidden"} md:block`}>
-        <ul className="space-y-4 text-white">
-          <li>
-            <NavLink
-              to="/admin/dashboard/home"
-              className="block px-4 py-2 hover:bg-gray-600 rounded-md"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/admin/dashboard/student"
-              className="block px-4 py-2 hover:bg-gray-600 rounded-md"
-            >
-              Students
-            </NavLink>
-          </li>
+      {/* Sidebar */}
+      <div
+        className={`fixed top-0 left-0 h-full bg-gray-800 text-white md:w-[170px] lg:w-52 transform transition-transform duration-300  ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
+      >
+        <ul className="flex flex-col mt-16 space-y-6 px-6">
+          <li><NavLink to="/admin/dashboard/home" onClick={handleLinkClick}>Home</NavLink></li>
+          <li><NavLink to="/admin/dashboard/student" onClick={handleLinkClick}>Home</NavLink></li>
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 
