@@ -5,12 +5,12 @@ const AdminLayout = () => {
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div className="md:w-[170px] lg:w-52">
+      <div className="md:w-[180px] lg:w-56">
         <Dashboard />
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-red-600 p-4 overflow-y-auto">
+      <div className="flex-1 p-4 overflow-y-auto">
         <Outlet />
       </div>
     </div>

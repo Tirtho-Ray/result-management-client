@@ -3,8 +3,8 @@ import ErrorPage from "../lib/ErrPage";
 import OpenLayout from "../Layout/openLayout/OpenLayout";
 import AdminLayout from "../Layout/adminLayout/AdminLayout";
 import Home from "../pages/OpenPages/Home/Home";
-import AdminHome from "../pages/AdminPages/Home/Home";
-import ManageStudent from "../pages/AdminPages/Home/ManageStudent";
+import AdminHome from "../pages/AdminPages/AdminHome/AdminHome";
+import ManageStudent from "../pages/AdminPages/ManageStudent/ManageStudent";
 // import Sidebar from "../components/AdminComponents/Sidebar";
 
 const router = createBrowserRouter([

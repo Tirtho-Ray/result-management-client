@@ -22,11 +22,17 @@ const Sidebar: React.FC = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full bg-gray-800 text-white md:w-[170px] lg:w-52 transform transition-transform duration-300  ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
+        className={`fixed top-0 left-0 h-full bg-gray-800 text-white md:w-[180px] lg:w-56 transform transition-transform duration-300  ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
       >
-        <ul className="flex flex-col mt-16 space-y-6 px-6">
-          <li><NavLink to="/admin/dashboard/home" onClick={handleLinkClick}>Home</NavLink></li>
-          <li><NavLink to="/admin/dashboard/student" onClick={handleLinkClick}>Home</NavLink></li>
+        <h1 className="text-center font-serif font-bold mt-6 md:text-md lg:text-lg">Admin Dashboard</h1>
+        <ul className="flex flex-col mt-8 space-y-2 px-3 text-center">
+            <li className="px-3 py-2 border border-gray-600 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition ease-out duration-200 shadow-lg">
+                <NavLink to="/admin/dashboard/home" onClick={handleLinkClick} className="block text-lg">Student Data</NavLink>
+            </li>
+            <li className="px-3 py-2 border border-gray-600 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition ease-out duration-200 shadow-lg">
+                <NavLink to="/admin/dashboard/student" onClick={handleLinkClick} className="block text-lg">Manage Student</NavLink>
+            </li>
+        
         </ul>
       </div>
     </>
