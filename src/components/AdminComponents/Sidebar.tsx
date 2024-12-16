@@ -27,10 +27,13 @@ const Sidebar: React.FC = () => {
         <h1 className="text-center font-serif font-bold mt-6 md:text-md lg:text-lg">Admin Dashboard</h1>
         <ul className="flex flex-col mt-8 space-y-2 px-3 text-center">
             <li className="px-3 py-2 border border-gray-600 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition ease-out duration-200 shadow-lg">
-                <NavLink to="/admin/dashboard/home" onClick={handleLinkClick} className="block text-lg">Student Data</NavLink>
+                <NavLink to="/admin/dashboard/home" onClick={handleLinkClick} className="block text-md lg:text-lg">Student Data</NavLink>
             </li>
             <li className="px-3 py-2 border border-gray-600 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition ease-out duration-200 shadow-lg">
-                <NavLink to="/admin/dashboard/student" onClick={handleLinkClick} className="block text-lg">Manage Student</NavLink>
+                <NavLink to="/admin/dashboard/student" onClick={handleLinkClick} className="block text-md lg:text-lg">Manage Student</NavLink>
+            </li>
+            <li className="px-3 py-2 border border-gray-600 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition ease-out duration-200 shadow-lg">
+                <NavLink to="/admin/dashboard/subject" onClick={handleLinkClick} className="block text-md lg:text-lg">Manage Subject</NavLink>
             </li>
         
         </ul>

@@ -5,6 +5,7 @@ import AdminLayout from "../Layout/adminLayout/AdminLayout";
 import Home from "../pages/OpenPages/Home/Home";
 import AdminHome from "../pages/AdminPages/AdminHome/AdminHome";
 import ManageStudent from "../pages/AdminPages/ManageStudent/ManageStudent";
+import ManageSubjects from "../pages/AdminPages/ManageSubject/ManageSubjects";
 // import Sidebar from "../components/AdminComponents/Sidebar";
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path:"/admin/dashboard/student",
                 element:<ManageStudent />
+            },
+            {
+                path:"/admin/dashboard/subject",
+                element:<ManageSubjects />
             }
         ]
             

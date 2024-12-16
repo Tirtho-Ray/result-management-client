@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../Api/Api";
+import CreateStudentModal from "./createStudentModal";
+import UpdateStudentModal from "./UpdateStudentModal";
 
 type Student = {
   _id: string;
@@ -16,13 +18,16 @@ const ManageStudent: React.FC = () => {
   const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedStudentRoll, setSelectedStudentRoll] = useState<string | null>(null);
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await api.get<{ success: boolean; data: any }>("/api/students");
-        console.log(response.data);  // Log to ensure correct data is fetched
+        // console.log(response.data);  // Log to ensure correct data is fetched
 
         if (response.data.success && response.data.data && Array.isArray(response.data.data.students)) {
           setStudents(response.data.data.students);  // Store all students
@@ -55,11 +60,44 @@ const ManageStudent: React.FC = () => {
     setFilteredStudents(filtered.slice(0, 2)); // Show only first 2 filtered results
   };
 
-  const handleCreateStudent = () => {
-    console.log("Create student clicked");
+
+//   create a list of students
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSaveStudent = (student: any) => {
+    console.log("Saving student:", student);
+    // Add the logic to save the student (e.g., API call to create a student)
   };
 
+  const handleCreateStudent = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+//   update
+const handleEditStudent = (_id: string) => {
+    setSelectedStudentRoll(_id); // Set the roll of the student to edit
+    setIsUpdateModalOpen(true); // Open modal
+  };
+
+  const closeUpdateModal = () => {
+    setIsUpdateModalOpen(false);
+    setSelectedStudentRoll(null);
+  };
+
+  const handleStudentUpdate = (updatedStudent: Student) => {
+    setStudents((prevStudents) =>
+      prevStudents.map((student) =>
+        student._id === updatedStudent._id ? updatedStudent : student
+      )
+    );
+  };
+
+
   return (
+    <>
     <div className="p-6 bg-gradient-to-r from-gray-100 to-gray-200 min-h-screen">
       <h1 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">Manage Students</h1>
 
@@ -116,7 +154,7 @@ const ManageStudent: React.FC = () => {
                     <td className="px-6 py-4 text-gray-800">{student.departmentId.name}</td>
                     <td className="px-6 py-4 text-gray-800">{student.semesterId.name}</td>
                     <td className="px-6 py-4 text-center">
-                      <button className="px-4 py-1 bg-green-500 text-white rounded-lg mr-2 hover:bg-green-600 transition-all">
+                      <button onClick={() => handleEditStudent(student._id)} className="px-4 py-1 bg-green-500 text-white rounded-lg mr-2 hover:bg-green-600 transition-all">
                         Edit
                       </button>
                       <button className="px-4 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all">
@@ -137,6 +175,19 @@ const ManageStudent: React.FC = () => {
         </div>
       )}
     </div>
+    <CreateStudentModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onSave={handleSaveStudent}
+      />
+       {/* Update Student Modal */}
+       <UpdateStudentModal
+        isOpen={isUpdateModalOpen}
+        onClose={closeUpdateModal}
+        studentRoll={selectedStudentRoll}
+        onUpdate={handleStudentUpdate}
+      />
+    </>
   );
 };
 
