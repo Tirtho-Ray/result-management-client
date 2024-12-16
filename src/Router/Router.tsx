@@ -6,7 +6,9 @@ import Home from "../pages/OpenPages/Home/Home";
 import AdminHome from "../pages/AdminPages/AdminHome/AdminHome";
 import ManageStudent from "../pages/AdminPages/ManageStudent/ManageStudent";
 import ManageSubjects from "../pages/AdminPages/ManageSubject/ManageSubjects";
+import Login from "../Auth/Login/Login";
 // import Sidebar from "../components/AdminComponents/Sidebar";
+import ProtectedRoute from './../components/ProtectedRoute/ProtectedRoute';
 
 const router = createBrowserRouter([
     // This is for open routes
@@ -19,12 +21,18 @@ const router = createBrowserRouter([
                 path:"/",
                 element:<Home />
             },
+            {
+                path:"/login",
+                element:<Login />
+            },
         ]
     },
     // this is for ad admin routes
     {
         path:"/admin/dashboard",
-        element:<AdminLayout/>,
+        element:<ProtectedRoute >
+            <AdminLayout />
+            </ProtectedRoute>,
         errorElement:<ErrorPage />,
         children:[
             {

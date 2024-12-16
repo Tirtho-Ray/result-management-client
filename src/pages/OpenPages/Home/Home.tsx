@@ -3,9 +3,9 @@ import Result from "./Result";
 
 const Home = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="min-h-screen flex flex-col justify-center items-center">
       {/* Login Button */}
-      <div className="absolute top-4 right-4">
+      <div className="self-end mt-4 mr-4">
         <LoginBtnHome />
       </div>
       
