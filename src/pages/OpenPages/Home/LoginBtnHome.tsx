@@ -21,6 +21,18 @@ const LoginBtnHome = () => {
       >
         Login
       </button>
+      <button
+        onClick={handleLoginClick}
+        className="bg-slate-400 px-3 py-2 text-[12px] font-mono rounded-sm font-bold mt-2 mr-2"
+      >
+        Login
+      </button>
+      <button
+        onClick={handleLoginClick}
+        className="bg-slate-400 px-3 py-2 text-[12px] font-mono rounded-sm font-bold mt-2 mr-2"
+      >
+        Login
+      </button>
     </div>
   );
 };
