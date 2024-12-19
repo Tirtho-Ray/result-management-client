@@ -53,7 +53,7 @@ const Login = () => {
           localStorage.setItem("refreshToken", refreshToken);
           setUser({ accessToken, refreshToken }); // Update the context immediately
           toast.success("Login successful!");
-          navigate("/admin/dashboard"); // Redirect after successful login
+          navigate("/admin/dashboard/home"); // Redirect after successful login
         } else {
           console.error("Tokens are missing in the response.");
           toast.error("Tokens are missing in the response.");

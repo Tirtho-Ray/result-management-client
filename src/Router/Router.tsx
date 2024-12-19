@@ -46,7 +46,8 @@ const router = createBrowserRouter([
             {
                 path:"/admin/dashboard/subject",
                 element:<ManageSubjects />
-            }
+            },
+            
         ]
             
     }

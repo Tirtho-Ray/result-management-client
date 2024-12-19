@@ -53,3 +53,58 @@ export type StudentUpdate = {
 };
 
 
+export type Subject = {
+  _id: string;
+  name: string;
+  subCode: number;
+  mark: number;
+  credit: number;
+  semesterId: {
+      _id: string;
+      name: string;
+  };
+  departmentId: {
+      _id: string;
+      name: string;
+  };
+};
+
+export type Department = {
+  _id: string;
+  name: string;
+};
+
+export type Semester = {
+  _id: string;
+  name: string;
+};
+
+export type CreateSubject = {
+  _id?: string;
+  name: string;
+  subCode: number;
+  mark: number;
+  credit: number;
+  semesterId: string
+  departmentId: string;
+};
+
+export type UpdateSubject = {
+  _id?: string;
+  name?: string;
+  subCode?: number;
+  mark?: number;
+  credit?: number;
+  semesterId?: string
+  departmentId?: string;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type SubjectApiResponse<T = any> = {
+  success: boolean;
+  message: string;
+  data: T;
+};
+
+
+
