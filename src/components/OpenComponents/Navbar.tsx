@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import gsap from "gsap";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate();
 
     const closeMenu = () => setMenuOpen(false);
 
@@ -40,19 +42,19 @@ const Navbar = () => {
 
                 {/* Middle Pages */}
                 <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
-                    <li className="relative group">
+                    <li className="relative group" onClick={() => { closeMenu(); navigate("/"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
                             Home
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
-                    <li className="relative group">
+                    <li className="relative group" onClick={() => { closeMenu(); navigate("/about"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
                             About
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
-                    <li className="relative group">
+                    <li className="relative group" onClick={() => { closeMenu(); navigate("/services"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
                             Services
                         </span>
@@ -61,7 +63,7 @@ const Navbar = () => {
                 </ul>
 
                 {/* Login Button */}
-                <button className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
+                <button className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300" onClick={() => navigate("/login")}>
                     Login
                 </button>
             </nav>
@@ -72,26 +74,26 @@ const Navbar = () => {
                     <FaTimes />
                 </div>
                 <ul className="space-y-6 text-center text-lg">
-                    <li className="relative group" onClick={closeMenu}>
+                    <li className="relative group" onClick={() => { closeMenu(); navigate("/"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
                             Home
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
-                    <li className="relative group" onClick={closeMenu}>
+                    <li className="relative group" onClick={() => { closeMenu(); navigate("/about"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
                             About
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
-                    <li className="relative group" onClick={closeMenu}>
+                    <li className="relative group" onClick={() => { closeMenu(); navigate("/services"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
                             Services
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
                 </ul>
-                <button className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300" onClick={closeMenu}>
+                <button className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300" onClick={() => { closeMenu(); navigate("/login"); }}>
                     Login
                 </button>
             </div>
