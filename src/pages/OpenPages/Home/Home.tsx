@@ -1,13 +1,12 @@
-import LoginBtnHome from "./LoginBtnHome";
 import Result from "./Result";
 
 const Home = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
       {/* Login Button */}
-      <div className="self-end mt-4 mr-4">
+      {/* <div className="self-end mt-4 mr-4">
         <LoginBtnHome />
-      </div>
+      </div> */}
       
       {/* Main Content */}
       <div className="flex justify-center items-center h-full">

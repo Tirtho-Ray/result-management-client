@@ -35,6 +35,9 @@ const Sidebar: React.FC = () => {
             <li className="px-3 py-2 border border-gray-600 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition ease-out duration-200 shadow-lg">
                 <NavLink to="/admin/dashboard/subject" onClick={handleLinkClick} className="block text-md lg:text-lg">Manage Subject</NavLink>
             </li>
+            <li className="px-3 py-2 border border-gray-600 rounded-lg hover:bg-yellow-500 mt-10 hover:text-gray-900 transition ease-out duration-200 shadow-lg">
+                <NavLink to="/" onClick={handleLinkClick} className="block text-md lg:text-lg">Home</NavLink>
+            </li>
         
         </ul>
       </div>
