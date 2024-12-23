@@ -25,6 +25,12 @@ const Modal: React.FC<ModalProps> = ({ isVisible, onClose, children }) => {
         >
           ✖
         </button>
+        <button
+          className="absolute top-2 right-2 text-gray-600 hover:text-gray-900 font-semibold text-xl"
+          onClick={onClose} // Close modal when clicked
+        >
+          ✖
+        </button>
 
         {/* Modal Content */}
         {children}
