@@ -1,11 +1,14 @@
-
+import CgpaCalculate from "./CgpaCalculate";
+import CgpaContent from "./CgpaContent";
 
 const Cgpa = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <>
+      <CgpaCalculate />
+
+      <CgpaContent />
+    </>
+  );
 };
 
 export default Cgpa;

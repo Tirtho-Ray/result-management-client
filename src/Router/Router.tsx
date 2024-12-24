@@ -9,6 +9,7 @@ import ManageSubjects from "../pages/AdminPages/ManageSubject/ManageSubjects";
 import Login from "../Auth/Login/Login";
 // import Sidebar from "../components/AdminComponents/Sidebar";
 import ProtectedRoute from './../components/ProtectedRoute/ProtectedRoute';
+import Cgpa from "../pages/OpenPages/CgpaCalculater/Cgpa";
 
 const router = createBrowserRouter([
     // This is for open routes
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path:"/",
                 element:<Home />
+            },
+            {
+                path:"/calculate-cgpa",
+                element:<Cgpa />
             },
             {
                 path:"/login",
