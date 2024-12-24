@@ -28,11 +28,11 @@ const Navbar = () => {
     }, [menuOpen]);
 
     return (
-        <div className="sticky top-0 bg-white shadow-lg z-50">
-            <nav className="flex items-center justify-between px-6 py-4 md:px-8 lg:px-16">
+        <div className="sticky top-0 bg-white z-50">
+            <nav className="flex items-center justify-between px-6 py-4 md:px-2 shadow-lg">
                 {/* Logo */}
-                <div className="text-2xl font-bold text-blue-600 hover:scale-110 transition-transform duration-300">
-                    MyLogo
+                <div className="text-xl font-bold text-blue-600 hover:scale-110 transition-transform duration-300">
+                    Result Management
                 </div>
 
                 {/* Menu Toggle Button for Mobile */}
@@ -44,13 +44,13 @@ const Navbar = () => {
                 <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
                     <li className="relative group" onClick={() => { closeMenu(); navigate("/"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
-                            Home
+                            Result 
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
                     <li className="relative group" onClick={() => { closeMenu(); navigate("/about"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
-                            About
+                           Gpa calculator
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
