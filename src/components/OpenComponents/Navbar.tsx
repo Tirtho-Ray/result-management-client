@@ -29,10 +29,10 @@ const Navbar = () => {
 
     return (
         <div className="sticky top-0 bg-white z-50">
-            <nav className="flex items-center justify-between px-6 py-4 md:px-2 shadow-lg">
+            <nav className="flex items-center justify-between px-6 py-4 md:px-4 shadow-lg">
                 {/* Logo */}
-                <div className="text-xl font-bold text-blue-600 hover:scale-110 transition-transform duration-300">
-                    Result Management
+                <div className="text-xl font-bold text-blue-600  transition-transform duration-300">
+                    Result Zone
                 </div>
 
                 {/* Menu Toggle Button for Mobile */}

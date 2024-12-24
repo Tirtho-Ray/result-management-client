@@ -9,7 +9,7 @@ const semesterWeights = {
 
 const CgpaCalculate: React.FC = () => {
   const [grades, setGrades] = useState<(string | null)[]>(Array(8).fill(null));
-  const [selectedYear, setSelectedYear] = useState<keyof typeof semesterWeights>(2010);
+  const [selectedYear, setSelectedYear] = useState<keyof typeof semesterWeights>(2022);
   const [cgpa, setCgpa] = useState<number | null>(null);
 
   const handleGradeChange = (index: number, value: string) => {
@@ -35,7 +35,7 @@ const CgpaCalculate: React.FC = () => {
 
   return (
    <>
-    <div className="container mx-auto p-6 max-w-lg bg-gradient-to-br from-blue-50 via-white to-blue-50 shadow-2xl rounded-2xl">
+    <div className="container mx-auto p-6 max-w-lg bg-gradient-to-br from-blue-50 via-white to-blue-50 shadow-2xl rounded-xl mt-4">
       <h1 className="text-3xl font-bold text-center mb-6 text-blue-700">CGPA Calculator</h1>
 
       <div className="mb-6">
@@ -78,13 +78,13 @@ const CgpaCalculate: React.FC = () => {
       <div className="flex gap-4">
         <button
           onClick={calculateCGPA}
-          className="bg-blue-600 text-white px-4 py-3 rounded-xl shadow hover:bg-blue-700 w-full transition-transform transform hover:scale-105"
+          className="bg-blue-600 text-white px-4 py-3 rounded-md shadow hover:bg-blue-700 w-full transition-transform transform hover:scale-105"
         >
           Calculate CGPA
         </button>
         <button
           onClick={resetFields}
-          className="bg-red-500 text-white px-4 py-3 rounded-xl shadow hover:bg-red-600 w-full transition-transform transform hover:scale-105"
+          className="bg-red-500 text-white px-4 py-3 rounded-md shadow hover:bg-red-600 w-full transition-transform transform hover:scale-105"
         >
           Reset
         </button>

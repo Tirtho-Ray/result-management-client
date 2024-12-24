@@ -5,7 +5,6 @@ const Cgpa = () => {
   return (
     <>
       <CgpaCalculate />
-
       <CgpaContent />
     </>
   );

@@ -9,4 +9,4 @@ const CgpaContent = () => {
   );
 };
 
-export default CgpaContent;
+export default CgpaContent; //complete 
