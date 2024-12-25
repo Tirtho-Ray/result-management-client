@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import getSubject from "../../../Api/manageSubject/getSubject";
 import CreateSubjectForm from "./createSubject";
-import { Subject } from "../../../types/types";
-import UpdateSubject from "./UpdateSubject";
+import { CreateSubject, Subject } from "../../../types/types";
+import { useNavigate } from "react-router-dom";
 
 const ManageSubjects = () => {
   const [subjects, setSubjects] = useState<Subject[]>([]);
@@ -12,7 +12,12 @@ const ManageSubjects = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [subjectToUpdate, setSubjectToUpdate] = useState<Subject | null>(null);
+
+  const navigate = useNavigate();
+
+  const handleUpdate = (subject: Subject) => {
+    navigate(`/admin/dashboard/subject/${subject._id}`, { state: { subject } });
+  };
 
   useEffect(() => {
     const fetchSubjects = async () => {
@@ -51,17 +56,11 @@ const ManageSubjects = () => {
     }
   };
 
-  const handleCreateSubject = (newSubject: Partial<Subject>) => {
+  const handleCreateSubject = (newSubject: CreateSubject) => {
     console.log("Subject Created:", newSubject);
-    setShowModal(false); // Close modal after submitting
-    // Ideally, call API to create the subject and refresh the list
+    setShowModal(false);
+    // API call can be placed here
   };
-  const handleUpdate = (UpdateSubject: Partial<Subject>) => {
-    // <Navigate to={`/admin/dashboard/update-subject/${subject._id}`}></Navigate>
-    console.log("Subject Created:", UpdateSubject);
-    setShowModal(false); // Close modal after submitting
-  };
-
   if (loading) {
     return (
       <div className="text-center text-xl text-gray-500 py-8">Loading...</div>
@@ -70,7 +69,10 @@ const ManageSubjects = () => {
 
   return (
     <div className="p-6">
-      <div className="flex items-center gap-4 mb-6">
+        <div>
+            <p className="text-center font-bold text-lg md:text-xl mb-4">Manage Subject</p>
+        </div>
+      <div className=" grid grid-cols-2 lg:grid-cols-3   gap-3 mb-6">
         <input
           type="text"
           placeholder="Enter Subject Code"
@@ -86,7 +88,7 @@ const ManageSubjects = () => {
         </button>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
+          className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 "
         >
           Create Subject
         </button>
@@ -116,29 +118,14 @@ const ManageSubjects = () => {
 
           {/* Update button */}
           <button
-            onClick={() => {
-              setSubjectToUpdate(filteredSubject); // Set the subject to update
-              setShowModal(true); // Show the update modal
-            }}
-            className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600"
+            onClick={() => handleUpdate(filteredSubject)}
+            className="bg-yellow-500 text-white px-4 py-2 rounded-lg"
           >
             Update
           </button>
 
           {/* Modal for Updating */}
-          <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
-            {subjectToUpdate ? (
-              <>
-                <h2 className="text-xl font-semibold mb-4">Update Subject</h2>
-                <UpdateSubject
-                  subject={subjectToUpdate} // Pass the subject to update
-                  onSubmit={handleUpdate}
-                />
-              </>
-            ) : (
-              <div>Loading...</div>
-            )}
-          </Modal>
+         
         </div>
       )}
 

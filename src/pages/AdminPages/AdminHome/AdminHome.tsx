@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import api from "../../../Api/Api";
 import gsap from "gsap"; // Import GSAP
 
@@ -36,7 +36,7 @@ const AdminHome: React.FC = () => {
     };
 
     fetchStudents();
-  }, []);
+  }, );
 
   const processStudentData = (students: Student[]) => {
     if (!Array.isArray(students)) {
@@ -98,7 +98,7 @@ const AdminHome: React.FC = () => {
   const totalStudents = students.length;
 
   return (
-    <div className="p-6 bg-gradient-to-r from-gray-100 to-gray-200 min-h-screen">
+    <div className="p-6 bg-gradient-to-r from-gray-100 to-gray-200 min-h-screen mt-10">
       <h1 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">Student Data Overview</h1>
 
       {/* Total Students Section with Animations */}

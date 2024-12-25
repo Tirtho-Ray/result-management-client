@@ -10,6 +10,7 @@ import Login from "../Auth/Login/Login";
 // import Sidebar from "../components/AdminComponents/Sidebar";
 import ProtectedRoute from './../components/ProtectedRoute/ProtectedRoute';
 import Cgpa from "../pages/OpenPages/CgpaCalculater/Cgpa";
+import UpdateSubject from "../pages/AdminPages/ManageSubject/UpdateSubject";
 
 const router = createBrowserRouter([
     // This is for open routes
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             {
                 path:"/admin/dashboard/subject",
                 element:<ManageSubjects />
+            },
+            {
+                path:`/admin/dashboard/subject/:id`,
+                element:<UpdateSubject />
             },
             
         ]

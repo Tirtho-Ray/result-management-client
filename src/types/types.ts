@@ -53,6 +53,8 @@ export type StudentUpdate = {
 };
 
 
+// for subject
+
 export type Subject = {
   _id: string;
   name: string;
@@ -69,14 +71,9 @@ export type Subject = {
   };
 };
 
-export type Department = {
-  _id: string;
-  name: string;
-};
 
-export type Semester = {
-  _id: string;
-  name: string;
+export type CreateSubjectFormProps = {
+  onSubmit: (subject: CreateSubject) => void;
 };
 
 export type CreateSubject = {

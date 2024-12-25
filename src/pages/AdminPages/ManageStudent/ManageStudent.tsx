@@ -98,7 +98,7 @@ const handleEditStudent = (_id: string) => {
 
   return (
     <>
-    <div className="p-6 bg-gradient-to-r from-gray-100 to-gray-200 min-h-screen">
+    <div className="p-6 bg-gradient-to-r from-gray-100 to-gray-200 min-h-screen mt-10 ">
       <h1 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">Manage Students</h1>
 
       {/* Top Section */}

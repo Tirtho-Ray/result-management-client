@@ -2,7 +2,7 @@ import Result from "./Result";
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center">
       {/* Login Button */}
       {/* <div className="self-end mt-4 mr-4">
         <LoginBtnHome />
