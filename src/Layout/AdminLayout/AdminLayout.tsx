@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Dashboard from "../../components/AdminComponents/Dashboard";
+import { ToastContainer } from "react-toastify";
 
 const AdminLayout = () => {
   return (
@@ -11,6 +12,7 @@ const AdminLayout = () => {
 
       {/* Main Content */}
       <div className="flex-1  overflow-y-auto bg-gradient-to-r from-gray-100 to-gray-200">
+      <ToastContainer />
         <Outlet />
       </div>
     </div>

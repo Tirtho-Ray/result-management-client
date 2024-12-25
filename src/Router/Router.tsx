@@ -11,6 +11,7 @@ import Login from "../Auth/Login/Login";
 import ProtectedRoute from './../components/ProtectedRoute/ProtectedRoute';
 import Cgpa from "../pages/OpenPages/CgpaCalculater/Cgpa";
 import UpdateSubject from "../pages/AdminPages/ManageSubject/UpdateSubject";
+import UpdateStudent from "../pages/AdminPages/ManageStudent/UpdateStudent";
 
 const router = createBrowserRouter([
     // This is for open routes
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
             {
                 path:"/admin/dashboard/student",
                 element:<ManageStudent />
+            },
+            {
+                path:"/admin/dashboard/student/:id",
+                element:<UpdateStudent />
             },
             {
                 path:"/admin/dashboard/subject",

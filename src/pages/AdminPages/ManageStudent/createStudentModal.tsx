@@ -267,7 +267,7 @@ const CreateStudentModal: React.FC<CreateStudentModalProps> = ({
         <div className="mb-4">
           <label className="block text-sm font-medium">Date</label>
           <input
-            type="text"
+            type="date"
             name="dateOfBirth"
             className="w-full px-4 py-2 border rounded-lg"
             value={student.dateOfBirth}
