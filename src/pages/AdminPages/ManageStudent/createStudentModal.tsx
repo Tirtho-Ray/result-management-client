@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import axios from "axios";
 import api from "../../../Api/Api";
 import saveStudent from "../../../Api/studentmanage/saveStudent";
 import { CreateStudentModalProps } from "../../../types/types";

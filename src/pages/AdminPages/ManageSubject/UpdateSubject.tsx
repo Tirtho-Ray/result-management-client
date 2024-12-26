@@ -126,7 +126,7 @@ const UpdateSubject: React.FC = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700">Mark</label>
               <input
-                type="number"
+                type=""
                 name="mark"
                 value={formData.mark}
                 onChange={handleChange}

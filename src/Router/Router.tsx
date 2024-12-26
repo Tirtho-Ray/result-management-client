@@ -12,6 +12,7 @@ import ProtectedRoute from './../components/ProtectedRoute/ProtectedRoute';
 import Cgpa from "../pages/OpenPages/CgpaCalculater/Cgpa";
 import UpdateSubject from "../pages/AdminPages/ManageSubject/UpdateSubject";
 import UpdateStudent from "../pages/AdminPages/ManageStudent/UpdateStudent";
+import ManageResult from "../pages/AdminPages/ManageResult/ManageResult";
 
 const router = createBrowserRouter([
     // This is for open routes
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
                 path:"/admin/dashboard/home",
                 element:<AdminHome />
             },
+            // manage Students
             {
                 path:"/admin/dashboard/student",
                 element:<ManageStudent />
@@ -54,6 +56,7 @@ const router = createBrowserRouter([
                 path:"/admin/dashboard/student/:id",
                 element:<UpdateStudent />
             },
+            // manage Subjects
             {
                 path:"/admin/dashboard/subject",
                 element:<ManageSubjects />
@@ -61,6 +64,11 @@ const router = createBrowserRouter([
             {
                 path:`/admin/dashboard/subject/:id`,
                 element:<UpdateSubject />
+            },
+            // manage Result
+            {
+                path:`/admin/dashboard/result`,
+                element:<ManageResult />
             },
             
         ]
