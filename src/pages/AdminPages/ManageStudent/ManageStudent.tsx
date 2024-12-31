@@ -63,10 +63,10 @@ const ManageStudent: React.FC = () => {
 //   create a list of students
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSaveStudent = (student: any) => {
-    console.log("Saving student:", student);
-    // Add the logic to save the student (e.g., API call to create a student)
-  };
+  const handleSaveStudent = (newStudent: Student) => {
+    setStudents((prevStudents) => [newStudent, ...prevStudents]); // Add to the beginning of the array
+    setFilteredStudents((prevStudents) => [newStudent, ...prevStudents.slice(0, 9)]); // Update filtered list
+  };;
 
   const handleCreateStudent = () => {
     setIsModalOpen(true);
@@ -123,7 +123,6 @@ const ManageStudent: React.FC = () => {
                 <th className="px-6 py-3 text-left font-medium text-sm uppercase">Board Roll</th>
                 <th className="px-6 py-3 text-left font-medium text-sm uppercase">Collage Roll</th>
                 <th className="px-6 py-3 text-left font-medium text-sm uppercase">Name</th>
-                <th className="px-6 py-3 text-left font-medium text-sm uppercase">Email</th>
                 <th className="px-6 py-3 text-left font-medium text-sm uppercase">Department</th>
                 <th className="px-6 py-3 text-left font-medium text-sm uppercase">Semester</th>
                 <th className="px-6 py-3 text-center font-medium text-sm uppercase">Actions</th>
@@ -139,7 +138,6 @@ const ManageStudent: React.FC = () => {
                     <td className="px-6 py-4 text-gray-800">{student.boardRoll}</td>
                     <td className="px-6 py-4 text-gray-800">{student.collageRoll}</td>
                     <td className="px-6 py-4 text-gray-800">{student.name}</td>
-                    <td className="px-6 py-4 text-gray-600">{student.email}</td>
                     <td className="px-6 py-4 text-gray-800">{student.departmentId.name}</td>
                     <td className="px-6 py-4 text-gray-800">{student.semesterId.name}</td>
                     <td className="px-6 py-4 text-center">

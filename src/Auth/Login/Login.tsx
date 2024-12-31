@@ -22,8 +22,8 @@ interface ApiResponse {
 const Login = () => {
   const { setUser } = useAuth(); // Access context to set user after login
   const [formData, setFormData] = useState<LoginFormData>({
-    email: "testAdmi2n@gmail.com",
-    password: "admin@123",
+    email: "Admin1234@gmail.com",
+    password: "Admin@1234",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

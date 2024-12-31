@@ -13,14 +13,14 @@ export interface LoginFormData {
 export interface Student {
   name: string;
   boardRoll: string;
-  registration: string;
+  registration?: string;
   session: string;
   departmentId: string;
   semesterId: string;
-  email?: string;
-  phone?: string;
-  address?: string;
-  dateOfBirth?: string;
+  email: string;
+  phone: string;
+  address: string;
+  dateOfBirth: string;
 }
 export type CreateStudentModalProps = {
   isOpen: boolean;
@@ -105,3 +105,48 @@ export type SubjectApiResponse<T = any> = {
 
 
 
+// result
+
+export interface RTDepartment {
+  _id: string;
+  name: string;
+}
+
+export interface RTSemester {
+  _id: string;
+  name: string;
+}
+
+export interface RTSubject {
+  _id: string;
+  name: string;
+  code: string;
+  semesterId: string;
+}
+
+export interface RTStudent {
+  _id: string;
+  name: string;
+  session: string;
+  boardRoll: string;
+  registration: string;
+  collageRoll: string;
+  departmentId: RTDepartment;
+  semesterId: RTSemester;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  result: any[]; // Replace with a proper result structure if necessary
+  isDeleted: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface RTResult {
+  subjectId: string;
+  obtainedMarks: number;
+}
+
+export interface RTApiResponse<T> {
+  success: boolean;
+  message: string;
+  data: T;
+}

@@ -28,6 +28,7 @@ const CreateSubjectForm: React.FC<CreateSubjectFormProps> = ({ onSubmit }) => {
         const response = await api.get<SubjectApiResponse>('/api/departments');
         if (response.data.success) {
           setDepartments(response.data.data);
+          // console.log(response.data.data);
         } else {
           console.error('Failed to fetch departments');
         }
