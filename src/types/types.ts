@@ -150,3 +150,13 @@ export interface RTApiResponse<T> {
   message: string;
   data: T;
 }
+
+// for result
+export type TSubject ={
+  name: string;
+  subCode: number;
+  mark: number;
+  credit:number;
+  semesterId:{ _id: string; name: string };  
+  departmentId:{ _id: string; name: string };  
+}

@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import { useAuth } from "../../Context/AuthContext";
 import Sidebar from "./Sidebar";
 
@@ -11,7 +12,8 @@ const Dashboard = () => {
       }
     
     return (
-        <div>
+        <div className="">
+             <ToastContainer />
             
            <Sidebar />
           

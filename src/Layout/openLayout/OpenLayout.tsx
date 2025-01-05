@@ -6,7 +6,9 @@ import Footer from "../../components/OpenComponents/Footer";
 const OpenLayout = () => {
     return (
         <div className="max-w-[420px] md:max-w-[770px] lg:max-w-[1400px] border mx-auto ">
+           <div className="">
            <Navbar />
+           </div>
            <Outlet />
            <Footer />
         </div>
