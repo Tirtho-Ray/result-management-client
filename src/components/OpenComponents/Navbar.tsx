@@ -82,7 +82,7 @@ const Navbar = () => {
                     </li>
                     <li className="relative group" onClick={() => { closeMenu(); navigate("/calculate-cgpa"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
-                            About
+                        Gpa calculator
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>

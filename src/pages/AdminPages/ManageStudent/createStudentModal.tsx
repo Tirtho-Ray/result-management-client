@@ -114,7 +114,7 @@ const CreateStudentModal: React.FC<CreateStudentModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-1/2 max-h-[80vh] overflow-y-auto">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-h-[80vh] overflow-y-auto md:w-1/1">
         <h2 className="text-2xl font-bold mb-4">Create New Student</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Name */}

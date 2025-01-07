@@ -13,6 +13,7 @@ import Cgpa from "../pages/OpenPages/CgpaCalculater/Cgpa";
 import UpdateSubject from "../pages/AdminPages/ManageSubject/UpdateSubject";
 import UpdateStudent from "../pages/AdminPages/ManageStudent/UpdateStudent";
 import ManageResult from "../pages/AdminPages/ManageResult/ManageResult";
+import UpdateResult from "../pages/AdminPages/ManageResult/UpdateResult";
 
 const router = createBrowserRouter([
     // This is for open routes
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
             {
                 path:`/admin/dashboard/result`,
                 element:<ManageResult />
+            },
+            {
+                path:`/admin/dashboard/update-result`,
+                element:<UpdateResult />
             },
             
         ]
