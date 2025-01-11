@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -13,7 +14,7 @@ interface LoginFormData {
 interface ApiResponse {
   success: boolean;
   message: string;
-  data: {
+  data?: {
     accessToken: string;
     refreshToken: string;
   };
@@ -22,8 +23,8 @@ interface ApiResponse {
 const Login = () => {
   const { setUser } = useAuth(); // Access context to set user after login
   const [formData, setFormData] = useState<LoginFormData>({
-    email: "Admin1234@gmail.com",
-    password: "Admin@1234",
+    email: "",
+    password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -37,35 +38,60 @@ const Login = () => {
     }));
   };
 
+  const validateInputs = () => {
+    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+      setError("Please enter a valid email address.");
+      toast.error("Invalid email address.");
+      return false;
+    }
+    if (!formData.password || formData.password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      toast.error("Invalid password.");
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
+    e.preventDefault(); // Prevent default form submission behavior
     setError(null);
+
+    if (!validateInputs()) return; // Stop if validation fails
+
+    setIsLoading(true);
 
     try {
       const response = await api.post<ApiResponse>("/api/auth/login", formData);
 
       if (response.data.success) {
-        const { accessToken, refreshToken } = response.data.data;
+        const { accessToken, refreshToken } = response.data.data!;
 
-        if (accessToken && refreshToken) {
-          localStorage.setItem("accessToken", accessToken);
-          localStorage.setItem("refreshToken", refreshToken);
-          setUser({ accessToken, refreshToken }); // Update the context immediately
-          toast.success("Login successful!");
-          navigate("/admin/dashboard/home"); // Redirect after successful login
-        } else {
-          console.error("Tokens are missing in the response.");
-          toast.error("Tokens are missing in the response.");
-        }
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+        setUser({ accessToken, refreshToken }); // Update the context immediately
+        toast.success("Login successful!");
+        navigate("/admin/dashboard/home"); // Redirect after successful login
       } else {
         setError(response.data.message);
         toast.error(response.data.message || "Login failed.");
       }
-    } catch (error) {
-      console.error("Login error:", error);
-      setError("An error occurred during login. Please try again.");
-      toast.error("An error occurred during login. Please try again.");
+    } catch (error: any) {
+      if (error.response) {
+        if (error.response.status === 401) {
+          setError("Incorrect password. Please try again.");
+          toast.error("Incorrect password. Please try again.");
+        } else if (error.response.status === 404) {
+          setError("User not found. Please check your email.");
+          toast.error("User not found. Please check your email.");
+        } else {
+          setError(error.response.data.message || "An unexpected error occurred.");
+          toast.error(error.response.data.message || "An unexpected error occurred.");
+        }
+      } else {
+        console.error("Login error:", error);
+        setError("An error occurred during login. Please try again.");
+        toast.error("An error occurred during login. Please try again.");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -75,7 +101,7 @@ const Login = () => {
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
       <div className="bg-white w-full max-w-md p-6 rounded-md shadow-md">
         <h2 className="text-lg font-bold mb-4 text-center">Login</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
           {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
 
           <label className="block mb-2 text-sm font-medium">Email</label>

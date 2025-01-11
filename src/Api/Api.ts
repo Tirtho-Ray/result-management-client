@@ -1,14 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // import { AxiosRequestConfig } from 'axios';
 import { clearTokens, getAccessToken, getRefreshToken, setAccessToken } from '../utils/tokenutils';
 import axios from 'axios';
 
 // Define the API instance
 const api = axios.create({
-  baseURL: "http://localhost:5000/", // Update with your backend URL
+  baseURL: import.meta.env.VITE_API_URL, // Update with your backend URL
+
   headers: {
     'Content-Type': 'application/json',
   },
 });
+// console.log(import.meta.env.VITE_API_URL)
 
 // Request interceptor for adding the access token to the headers
 api.interceptors.request.use(
@@ -33,7 +36,7 @@ api.interceptors.response.use(
       const refreshToken = getRefreshToken();
       if (refreshToken) {
         try {
-          const { data } = await axios.post("http://localhost:5000/api/auth/refresh", { refreshToken });
+          const { data } = await axios.post(`${import.meta.env.VITE_API_URL}api/auth/refresh`, { refreshToken });
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const { accessToken }:any = data;
           setAccessToken(accessToken); // Save the new access token

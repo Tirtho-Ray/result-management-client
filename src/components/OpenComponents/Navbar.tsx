@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className="sticky top-0 bg-white z-50">
             <nav className="flex items-center justify-between px-6 py-4 md:px-4 shadow-lg">
                 {/* Logo */}
-                <div className="text-xl font-bold text-blue-600  transition-transform duration-300">
+                <div className="text-xl font-bold text-blue-600  transition-transform duration-300 cursor-pointer">
                     Result Zone
                 </div>
 
@@ -54,12 +54,12 @@ const Navbar = () => {
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
-                    <li className="relative group" onClick={() => { closeMenu(); navigate("/services"); }}>
+                    {/* <li className="relative group" onClick={() => { closeMenu(); navigate("/all-results"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
-                            Services
+                            All result
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                    </li>
+                    </li> */}
                 </ul>
 
                 {/* Login Button */}
@@ -86,12 +86,12 @@ const Navbar = () => {
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
-                    <li className="relative group" onClick={() => { closeMenu(); navigate("/services"); }}>
+                    {/* <li className="relative group" onClick={() => { closeMenu(); navigate("/all-results"); }}>
                         <span className="hover:text-blue-600 cursor-pointer transition-colors duration-300">
-                            Services
+                            All Results
                         </span>
                         <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                    </li>
+                    </li> */}
                 </ul>
                 <button className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300" onClick={() => { closeMenu(); navigate("/login"); }}>
                     Login

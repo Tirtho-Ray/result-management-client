@@ -88,6 +88,9 @@ const Footer = () => {
             <a href="#" className="text-gray-400 hover:text-white transition duration-300">Contact Us</a>
           </div>
         </div>
+        <div className='text-center mb-5 mt-4'>
+          <a href='https://github.com/Tirtho-Ray'>Develop by <span  className='underline '>Tirtho Ray</span></a>
+        </div>
       </div>
     </footer>
   );

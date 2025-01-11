@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { logout } = useAuth(); // Get the logout function from AuthContext
+    const navigate = useNavigate();
+  
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -12,6 +16,11 @@ const Sidebar: React.FC = () => {
   const handleLinkClick = () => {
     setIsOpen(false);
   };
+  const handleLogout = () => {
+    logout(); // Call logout from AuthContext
+    navigate("/"); // Redirect to home page after logout
+  };
+
 
   return (
     <>
@@ -45,6 +54,9 @@ const Sidebar: React.FC = () => {
             <li className="px-3 py-2 border border-gray-600 rounded-lg hover:bg-yellow-500 mt-10 hover:text-gray-900 transition ease-out duration-200 shadow-lg">
                 <NavLink to="/" onClick={handleLinkClick} className="block text-md lg:text-lg">Home</NavLink>
             </li>
+            <li className="px-3 py-2 border border-gray-600 rounded-lg hover:bg-yellow-500 mt-10 hover:text-gray-900 transition ease-out duration-200 shadow-lg">
+            <button onClick={handleLogout} className="block text-md lg:text-lg w-full text-left">Log out</button>
+          </li>
         
         </ul>
       </div>

@@ -196,8 +196,8 @@ const Result = () => {
       </div>
 
       {isLoading && (
-        <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="text-white font-bold text-xl">Loading...</div>
+        <div className="absolute inset-0 flex justify-center items-center">
+          <div className="text-white font-bold text-xl  bg-black bg-opacity-50 p-20 rounded-2xl ">Loading...</div>
         </div>
       )}
 

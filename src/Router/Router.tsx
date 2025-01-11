@@ -7,13 +7,13 @@ import AdminHome from "../pages/AdminPages/AdminHome/AdminHome";
 import ManageStudent from "../pages/AdminPages/ManageStudent/ManageStudent";
 import ManageSubjects from "../pages/AdminPages/ManageSubject/ManageSubjects";
 import Login from "../Auth/Login/Login";
-// import Sidebar from "../components/AdminComponents/Sidebar";
 import ProtectedRoute from './../components/ProtectedRoute/ProtectedRoute';
 import Cgpa from "../pages/OpenPages/CgpaCalculater/Cgpa";
 import UpdateSubject from "../pages/AdminPages/ManageSubject/UpdateSubject";
 import UpdateStudent from "../pages/AdminPages/ManageStudent/UpdateStudent";
 import ManageResult from "../pages/AdminPages/ManageResult/ManageResult";
 import UpdateResult from "../pages/AdminPages/ManageResult/UpdateResult";
+import AllResult from "../pages/OpenPages/Allresult/Allresult";
 
 const router = createBrowserRouter([
     // This is for open routes
@@ -29,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path:"/calculate-cgpa",
                 element:<Cgpa />
+            },
+            {
+                path:"/all-results",
+                element:<AllResult />
             },
             {
                 path:"/login",
