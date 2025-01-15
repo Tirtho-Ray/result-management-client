@@ -38,8 +38,8 @@ const ManageResult = () => {
   const [selectedSemester, setSelectedSemester] = useState<string>("");
   const [subjects, setSubjects] = useState<TSubject[]>([]);
   const [subjectMarks, setSubjectMarks] = useState<Record<string, number>>({});
-  const [loading, setLoading] = useState<boolean>(false);
-  const [subjectLoading, setSubjectLoading] = useState<boolean>(false);
+  const [, setLoading] = useState<boolean>(false);
+  const [, setSubjectLoading] = useState<boolean>(false);
 
   // Fetch semesters on component mount
   useEffect(() => {

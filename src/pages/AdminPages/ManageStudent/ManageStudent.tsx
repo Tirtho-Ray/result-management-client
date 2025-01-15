@@ -13,6 +13,8 @@ type Student = {
   semesterId: { _id: string; name: string };
 };
 
+
+
 const ManageStudent: React.FC = () => {
   const [students, setStudents] = useState<Student[]>([]);
   const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
@@ -63,7 +65,7 @@ const ManageStudent: React.FC = () => {
 //   create a list of students
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSaveStudent = (newStudent: Student) => {
+  const handleSaveStudent = (newStudent:any) => {
     setStudents((prevStudents) => [newStudent, ...prevStudents]); // Add to the beginning of the array
     setFilteredStudents((prevStudents) => [newStudent, ...prevStudents.slice(0, 9)]); // Update filtered list
   };;
