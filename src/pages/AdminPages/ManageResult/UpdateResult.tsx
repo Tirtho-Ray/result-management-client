@@ -13,7 +13,7 @@ interface RApiResponse<T> {
 }
 
 const UpdateResult = () => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [, setLoading] = useState<boolean>(false);
   const [semesters, setSemesters] = useState<RTSemester[]>([]);
   const [selectedSemester, setSelectedSemester] = useState<string>("");
   const [boardRoll, setBoardRoll] = useState<string>("");

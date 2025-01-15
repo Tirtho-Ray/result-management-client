@@ -41,39 +41,61 @@ const CreateStudentModal: React.FC<CreateStudentModalProps> = ({
     },
   });
 
+  // useEffect(() => {
+  //   const fetchDepartments = async () => {
+  //     try {
+  //       const response = await api.get<ApiResponse>("/api/departments");
+  //       if (response.data.success) {
+  //         setDepartments(response.data.data);
+  //       } else {
+  //         Swal.fire("Error", "Failed to fetch departments", "error");
+  //       }
+  //     } catch (error) {
+  //       Swal.fire("Error", "Failed to fetch departments", "error");
+  //     }
+  //   };
+
+  //   fetchDepartments();
+  // }, []);
+
+  // useEffect(() => {
+  //   const fetchSemesters = async () => {
+  //     try {
+  //       const response = await api.get<ApiResponse>("/api/semesters");
+  //       if (response.data.success) {
+  //         setSemesters(response.data.data);
+  //       } else {
+  //         Swal.fire("Error", "Failed to fetch semesters", "error");
+  //       }
+  //     } catch (error) {
+  //       Swal.fire("Error", "Failed to fetch semesters", "error");
+  //     }
+  //   };
+
+  //   fetchSemesters();
+  // }, []);
+
   useEffect(() => {
-    const fetchDepartments = async () => {
-      try {
-        const response = await api.get<ApiResponse>("/api/departments");
-        if (response.data.success) {
-          setDepartments(response.data.data);
-        } else {
-          Swal.fire("Error", "Failed to fetch departments", "error");
-        }
-      } catch (error) {
-        Swal.fire("Error", "Failed to fetch departments", "error");
+  const fetchData = async () => {
+    try {
+      const [departmentsResponse, semestersResponse] = await Promise.all([
+        api.get<ApiResponse>("/api/departments"),
+        api.get<ApiResponse>("/api/semesters"),
+      ]);
+
+      if (departmentsResponse.data.success && semestersResponse.data.success) {
+        setDepartments(departmentsResponse.data.data);
+        setSemesters(semestersResponse.data.data);
+      } else {
+        Swal.fire("Error", "Failed to fetch data", "error");
       }
-    };
+    } catch (error) {
+      Swal.fire("Error", "Failed to fetch data", "error");
+    }
+  };
 
-    fetchDepartments();
-  }, []);
-
-  useEffect(() => {
-    const fetchSemesters = async () => {
-      try {
-        const response = await api.get<ApiResponse>("/api/semesters");
-        if (response.data.success) {
-          setSemesters(response.data.data);
-        } else {
-          Swal.fire("Error", "Failed to fetch semesters", "error");
-        }
-      } catch (error) {
-        Swal.fire("Error", "Failed to fetch semesters", "error");
-      }
-    };
-
-    fetchSemesters();
-  }, []);
+  fetchData();
+}, []);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = async (data: any) => {
